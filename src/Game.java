@@ -16,50 +16,49 @@ public class Game {
     }
 
 
-
     public void start() {
         Scanner scanner = new Scanner(System.in);
         int couter = 0;
         int couterFor2 = 0;
-        for (int i = 0; i < 10; i++) {
+        System.out.println("Вы можете сделать " + length * 2 + " выстрелов");
+        for (int i = 0; i < length * 2; i++) {
             int first = scanner.nextInt();
             int second = scanner.nextInt();
 
 
             if (first < length && second < width && first >= 0 && second >= 0) {
                 int shot = field[first][second];
-               switch (shot){
-                   case 0:
-                       System.out.println("Вы не попали");
-                       break;
-                   case 1:
-                       System.out.println("Вы попали в однопалубный корабль");
-                       couter = couter + 1;
-                       break;
-                   case 2:
-                       System.out.println("Вы попали в двухпалубный корабль");
-                       couterFor2 = couterFor2 + 1;
-               }
+                switch (shot) {
+                    case 0:
+                        System.out.println("Вы не попали");
+                        break;
+                    case 1:
+                        System.out.println("Вы попали в однопалубный корабль");
+                        couter = couter + 1;
+                        break;
+                    case 2:
+                        System.out.println("Вы попали в двухпалубный корабль");
+                        couterFor2 = couterFor2 + 1;
+                }
 
-                //if (shot == 0) {
-               //     System.out.println("Вы не попали");
-               // }
-               // if (shot == 1) {
-                 //   System.out.println("Вы попали в однопалубный корабль");
-                  //  couter = couter + 1;
-               // }
-              //  if (shot == 2) {
-                 //   System.out.println("Вы попали в двухпалубный корабль");
-                  //  couterFor2 = couterFor2 + 1;
-               // }
             } else {
                 System.out.println("Вы ввели некорректные координаты");
             }
         }
-        System.out.println("Количество Ваших попаданий по кораблям составляет: " + couter + " по однопалубным и " + couterFor2 + " по двухпалубным");
+        if (couter == 0 && couterFor2 > 0) {
+            System.out.println("Количество Ваших попаданий по кораблям составляет: " + couterFor2 + " по двухпалубным");
+        }
+        if (couter > 0 && couterFor2 == 0) {
+            System.out.println("Количество Ваших попаданий по кораблям составляет: " + couter + " по однопалубным");
+        }
+        if (couter == 0 && couterFor2 == 0) {
+            System.out.println("Вы ни разу не попали ни в один корабль");
+        }
+        if (couter > 0 && couterFor2 > 0) {
+            System.out.println("Количество Ваших попаданий по кораблям составляет: " + couter + " по однопалубным и " + couterFor2 + " по двухпалубным");
+        }
     }
 }
-
 
 
 //Исправить ошибку с хардкодингом - везде, где я жестко прописал цифровые значения (кроме класса Main)

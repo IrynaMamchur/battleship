@@ -8,13 +8,13 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        FieldGenerator fieldGenerator = new FieldGenerator(15, 15);
+        FieldGenerator fieldGenerator = new FieldGenerator(3, 3);
         int[][] field = fieldGenerator.generate();
 
-        FieldViewer fieldViewer = new FieldViewer(15);
+        FieldViewer fieldViewer = new FieldViewer(3);
 
 
-        Game game = new Game(field, 15, 15);
+        Game game = new Game(field, 3, 3);
         game.start();
 
         fieldViewer.printField(field);
