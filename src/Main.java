@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 //создать поле игры
 //создать базовую генерацию кораблей
 //дать возможность игроку стрелять
@@ -8,13 +9,17 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        FieldGenerator fieldGenerator = new FieldGenerator(3, 3);
+        //все равно не понимаю, как сделать так, чтоб запрос по длине и ширине поля был сделан только один раз. Застряла и все тут((
+        Info info = new Info();
+        info.info();
+
+        FieldGenerator fieldGenerator = new FieldGenerator();
         int[][] field = fieldGenerator.generate();
 
-        FieldViewer fieldViewer = new FieldViewer(3);
+        FieldViewer fieldViewer = new FieldViewer();
 
 
-        Game game = new Game(field, 3, 3);
+        Game game = new Game(field);
         game.start();
 
         fieldViewer.printField(field);

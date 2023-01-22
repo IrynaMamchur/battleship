@@ -9,17 +9,19 @@ public class Game {
     private int width;
 
 
-    public Game(int[][] field, int length, int width) {
+    public Game(int[][] field) {
         this.field = field;
         this.length = length;
         this.width = width;
     }
 
-
     public void start() {
         Scanner scanner = new Scanner(System.in);
         int couter = 0;
         int couterFor2 = 0;
+        System.out.println("Введите длину поля");
+        int length = scanner.nextInt();
+        System.out.println("Введите ширину поля");
         System.out.println("Вы можете сделать " + length * 2 + " выстрелов");
         for (int i = 0; i < length * 2; i++) {
             int first = scanner.nextInt();
@@ -61,11 +63,4 @@ public class Game {
 }
 
 
-//Исправить ошибку с хардкодингом - везде, где я жестко прописал цифровые значения (кроме класса Main)
-// заменить эти цифры на переменные длины и ширины поля (где какие - надо подумать).
-// Соответственно, в класс Game придется добавить эти два поля и конструктор.
-// Проверить, запуская вашу игру на разных размерах поля
-//
-//Усложнение. попробовать генерировать не одиночные корабли, а двойные
-//
-//Second level:
+

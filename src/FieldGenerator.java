@@ -1,18 +1,45 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class FieldGenerator {
     private int length;
     private int width;
 
-    public FieldGenerator(int length, int width) {
+    public FieldGenerator() {
         this.length = length;
         this.width = width;
     }
 
-    public int[][] generate() {
-        Random random = new Random();
-        int[][] field = new int[length][width];
+    public int getLength() {
+        return length;
+    }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public void setLength(int length) {
+        if (length >= 3) {
+            this.length = length;
+        }
+        System.out.println("Вы ввели некорректные данные длины поля. Длина должна быть больше или равна 3");
+    }
+
+    public void setWidth(int width) {
+        if (width >= 3) {
+            this.width = width;
+        }
+        System.out.println("Вы ввели некорректные данные ширины поля. Длина должна быть больше или равна 3");
+    }
+
+    public int[][] generate() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите длину поля");
+        int length = scanner.nextInt();
+        System.out.println("Введите ширину поля");
+        int width = scanner.nextInt();
+        int[][] field = new int[length][width];
+        Random random = new Random();
         int countForShips1 = 0;
         int countForShips2length = 0;
         int countForShips2width = 0;
@@ -42,11 +69,13 @@ public class FieldGenerator {
                 countForShips2width++;
             }
         }
-
         return field;
     }
 
+
 }
+
+
 
 
 
