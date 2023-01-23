@@ -6,23 +6,29 @@ package battershipOk;
 
 // полноценная игра
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        //все равно не понимаю, как сделать так, чтоб запрос по длине и ширине поля был сделан только один раз. Застряла и все тут((
         Info info = new Info();
         info.info();
 
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите длину поля");
+        int length = scanner.nextInt();
+        System.out.println("Введите ширину поля");
+        int width = scanner.nextInt();
+
         FieldGenerator fieldGenerator = new FieldGenerator();
-        int[][] field = fieldGenerator.generate();
-
-        FieldViewer fieldViewer = new FieldViewer();
-
+        int[][] field = fieldGenerator.generate(length, width);
 
         Game game = new Game(field);
-        game.start();
+        game.start(length, width);
 
-        fieldViewer.printField(field);
+        FieldViewer fieldViewer = new FieldViewer();
+        fieldViewer.printField(field, length);
     }
 }
 

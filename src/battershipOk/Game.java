@@ -16,13 +16,10 @@ public class Game {
         this.width = width;
     }
 
-    public void start() {
+    public void start(int length, int width) {
         Scanner scanner = new Scanner(System.in);
         int couter = 0;
         int couterFor2 = 0;
-        System.out.println("Введите длину поля");
-        int length = scanner.nextInt();
-        System.out.println("Введите ширину поля");
         System.out.println("Вы можете сделать " + length * 2 + " выстрелов");
         for (int i = 0; i < length * 2; i++) {
             int first = scanner.nextInt();
@@ -37,11 +34,17 @@ public class Game {
                         break;
                     case 1:
                         System.out.println("Вы попали в однопалубный корабль");
-                        couter = couter + 1;
+                        couter++;
+                        field[first][second] = -1;
                         break;
                     case 2:
                         System.out.println("Вы попали в двухпалубный корабль");
-                        couterFor2 = couterFor2 + 1;
+                        couterFor2++;
+                        field[first][second] = -1;
+                        break;
+                    case -1:
+                        System.out.println("Вы сюда уже стреляли");
+
                 }
 
             } else {

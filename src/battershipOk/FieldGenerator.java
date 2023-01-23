@@ -34,12 +34,8 @@ public class FieldGenerator {
         System.out.println("Вы ввели некорректные данные ширины поля. Длина должна быть больше или равна 3");
     }
 
-    public int[][] generate() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите длину поля");
-        int length = scanner.nextInt();
-        System.out.println("Введите ширину поля");
-        int width = scanner.nextInt();
+    public int[][] generate(int length, int width) {
+
         int[][] field = new int[length][width];
         Random random = new Random();
         int countForShips1 = 0;
